@@ -1,0 +1,38 @@
+{
+  "name": "store-blueprint-os",
+  "version": "1.0.0",
+  "description": "Analyze any online store and generate a complete conversion blueprint — CRO + UX + Funnel Intelligence",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:pages -- --watch & npm run build:scripts -- --watch",
+    "build": "npm run generate:icons && npm run build:pages && npm run build:scripts",
+    "build:pages": "vite build",
+    "build:scripts": "node scripts/build-scripts.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "dexie": "^3.2.4",
+    "dexie-react-hooks": "^1.1.7",
+    "jspdf": "^2.5.1",
+    "lucide-react": "^0.363.0",
+    "papaparse": "^5.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/papaparse": "^5.3.14",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "esbuild": "^0.20.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10"
+  }
+}
