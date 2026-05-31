@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Store Blueprint OS",
+  "short_name": "Blueprint OS",
+  "version": "1.0.0",
+  "description": "Analyze any online store and generate a complete CRO + UX + Funnel Blueprint in seconds.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "sidePanel",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Store Blueprint OS — Open Panel"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
