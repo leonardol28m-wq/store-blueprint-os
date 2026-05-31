@@ -35,7 +35,7 @@ export function computeBlueprint(
   if(!conversion.elements.find(e=>e.type==='bundle'&&e.detected)) recommendations.push('Bundle frequently bought together items. Bundles increase AOV and simplify the buying decision.');
   if(!conversion.elements.find(e=>e.type==='coupon'&&e.detected)) quickWins.push('Add a first-time visitor discount popup (email capture)');
 
-  const platform = funnel.platform!=='unknown'?`on ${funnel.platform.toUpperCase()}`:​'';
+  const platform = funnel.platform!=='unknown'?`on ${funnel.platform.toUpperCase()}`:'';
   const rating = overall>=80?'a well-optimized store':overall>=60?'a store with solid foundations but room to grow':overall>=40?'a store with significant conversion opportunities':'a store that needs major CRO attention';
   const executiveSummary = `This is ${rating} ${platform}. ${structure.detectedCount} of ${structure.totalChecked} key sections detected (Score: ${overall}/100, Grade: ${grade}). ${quickWins.length>0?`${quickWins.length} quick-win opportunities identified.`:'The store has a strong foundational structure.'}`;
 
