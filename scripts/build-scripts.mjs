@@ -1,8 +1,10 @@
 /**
  * Store Blueprint OS — Scripts Builder
  * Uses esbuild to compile content + background scripts as IIFE/ESM bundles
+ * Also copies manifest.json → dist/manifest.json
  */
 import { build } from 'esbuild';
+import { copyFileSync } from 'fs';
 
 const sharedConfig = {
   bundle: true,
@@ -35,5 +37,9 @@ await build({
   tsconfig: 'tsconfig.json',
   alias: { '@': './src' },
 });
+
+// Copy manifest.json → dist/manifest.json
+copyFileSync('manifest.json', 'dist/manifest.json');
+console.log('✅ Copied manifest.json → dist/manifest.json');
 
 console.log('✅ Scripts built: content.js (IIFE) + background.js (ESM)');
